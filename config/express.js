@@ -9,6 +9,6 @@ module. exports = function() {
     app.use(bodyParser.json());
     app.use(expressValidator());
 
-    load('routes',{cwd: 'app'}).then('config').then('infra').into(app);
+    load('routes',{cwd: 'app'}).then('config').then('infra').then('model').into(app);
     return app;
 }
