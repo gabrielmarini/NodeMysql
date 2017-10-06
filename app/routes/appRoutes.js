@@ -58,4 +58,13 @@ module.exports = function(router){
             response.json(user);
         });
     });
+
+    router.get('/user', function(request, response){
+        var json = { "id": 1 };
+        var conexao = router.config.connection();
+        var UsersDAO = new router.infra.UsersDAO(conexao);
+        UsersDAO.findAll(function(error, users){
+            response.json(users);
+        });
+    });
 }
